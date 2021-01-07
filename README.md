@@ -7,7 +7,7 @@ This small project will help you to send an email on form submission using nodej
 - Nodejs (Installed);
 - Mailgun (API_KEY and DOMAIN).
 
-## Technologies/Framewords:
+## Technologies/Frameworks:
 - HTML;
 - CSS;
 - JavaScript;
