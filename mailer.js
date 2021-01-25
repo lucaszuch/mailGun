@@ -13,22 +13,23 @@ const auth = {
 //Mailing setup
 const transporter = nodemailer.createTransport(mailGun(auth));
 
-const sendMail = (email, subject, text, callback) => {
+const sendMail = (email, subject, text) => {
   const mailOptions = {
     from: email,
-    to: 'you@email.com',
+    to: 'lucaszuch@outlook.com',
     subject: subject,
     text: text
   };
-  
-  transporter.sendMail(mailOptions, function(error, data) {
-    if (error) {
-      callback(error, null);
-      console.log('Ops! I did it again!!');
-    } else {
-      callback(null, data);
-      console.log('Message sent!')
-    }
+
+  return new Promise((resolve, reject) => {
+      transporter.sendMail(mailOptions, function(error, data) {
+        if (error) {
+          console.log('Ops! I did it again!!');
+          reject(error);
+        }
+        console.log('Message sent!')
+        resolve(data);
+      });
   });
 };
 
